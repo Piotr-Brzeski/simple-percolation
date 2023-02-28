@@ -28,6 +28,7 @@
 		E2BD1AB7299C30F7003AFA43 /* site_percolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = site_percolation.h; sourceTree = "<group>"; };
 		E2BD1AB8299C30F7003AFA43 /* percolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = percolation.h; sourceTree = "<group>"; };
 		E2BD1AB9299C30F7003AFA43 /* rng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rng.h; sourceTree = "<group>"; };
+		E2BD1ABA299C361C003AFA43 /* bond_percolation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bond_percolation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 				E2BD1AB9299C30F7003AFA43 /* rng.h */,
 				E2BD1AB7299C30F7003AFA43 /* site_percolation.h */,
 				E2BD1AB0299C3024003AFA43 /* main.cpp */,
+				E2BD1ABA299C361C003AFA43 /* bond_percolation.h */,
 			);
 			path = "simple-percolation";
 			sourceTree = "<group>";

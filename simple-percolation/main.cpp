@@ -10,7 +10,7 @@
 
 int main(int argc, const char * argv[]) {
 	try {
-		auto p = site_percolation<10>();
+		auto p = site_percolation<5>();
 		std::cout << p.to_string() << std::endl;
 		std::string s;
 		while(!p.is_percolation()) {

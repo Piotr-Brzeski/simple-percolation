@@ -16,13 +16,13 @@
 #include <random>
 #include <algorithm>
 
-template<std::uint32_t L>
+template<std::uint32_t M>
 class percolation {
 public:
 	percolation()
 		: m_data{}
 		, m_last_cluster(0)
-		, m_rng(L*L-1)
+		, m_rng(M-1)
 	{
 	}
 	
@@ -94,7 +94,7 @@ protected:
 	virtual std::vector<std::uint32_t> neighbours(std::uint32_t index) const = 0;
 	virtual std::array<std::vector<std::uint32_t>, 4> edges() const = 0;
 	
-	std::array<std::uint32_t, L*L> m_data;
+	std::array<std::uint32_t, M> m_data;
 	
 private:
 	std::set<std::uint32_t> sorted_clusters(std::vector<std::uint32_t> const& indices) const {

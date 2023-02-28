@@ -11,7 +11,7 @@
 #include <string>
 
 template<std::uint32_t L>
-class site_percolation: public percolation<L> {
+class site_percolation: public percolation<L*L> {
 public:
 	std::string to_string() const {
 		std::string str;
