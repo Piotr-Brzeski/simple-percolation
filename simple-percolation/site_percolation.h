@@ -13,6 +13,27 @@
 template<std::uint32_t L>
 class site_percolation: public percolation<L*L> {
 public:
+	std::string to_array() const {
+		auto str = std::string("{");
+		for(std::uint32_t i = 0; i < L*L; ++i) {
+			if(i%(L) == 0) {
+				if(i > 0) {
+					str += ",\n";
+				}
+				str += "{";
+			}
+			else {
+				str += ", ";
+			}
+			str += std::to_string(this->m_data[i]);
+			if(i%L == L-1) {
+				str += "}";
+			}
+		}
+		str += "}";
+		return str;
+	}
+	
 	std::string to_string() const {
 		std::string str;
 		for(std::size_t i = 0; i < L*L; ++i) {
