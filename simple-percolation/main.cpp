@@ -8,6 +8,30 @@
 #include "site_percolation.h"
 #include "bond_percolation.h"
 #include <iostream>
+#include <fstream>
+
+template<class P>
+void save(P const& p) {
+	auto step = p.number_of_added_elements();
+	auto file_name = "perc_" + std::to_string(step) + ".txt";
+	auto file = std::ofstream(file_name);
+	file << p.to_string();
+	file << "\nn = " << step;
+	file << "\np = " << static_cast<double>(step) / p.size();
+	file << "\nc = " << p.biggest_cluster();
+	file << "\nd = " << p.is_percolation() << "\n\n";
+	file << p.to_array() << '\n';
+}
+
+template<class P>
+void save_percolation() {
+	auto p = P();
+	save(p);
+	while(!p.is_percolation()) {
+		p.add();
+		save(p);
+	}
+}
 
 template<class P>
 void test_percolation() {
@@ -28,7 +52,7 @@ void test_percolation() {
 
 int main(int argc, const char * argv[]) {
 	try {
-		test_percolation<site_percolation<4>>();
+		save_percolation<bond_percolation<20>>();
 //		test_percolation<bond_percolation<4>>();
 		return 0;
 	}

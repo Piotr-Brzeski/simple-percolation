@@ -21,7 +21,6 @@ class percolation {
 public:
 	percolation()
 		: m_data{}
-		, m_last_cluster(0)
 		, m_rng(M-1)
 	{
 	}
@@ -30,6 +29,7 @@ public:
 	}
 	
 	void add() {
+		++m_number_of_added_elements;
 		auto index = m_rng.get();
 		while(m_data[index] > 0) {
 			index = m_rng.get();
@@ -90,6 +90,14 @@ public:
 		return it->first;
 	}
 	
+	std::uint32_t number_of_added_elements() const {
+		return m_number_of_added_elements;
+	}
+	
+	std::size_t size() const {
+		return m_data.size();
+	}
+	
 protected:
 	virtual std::vector<std::uint32_t> neighbours(std::uint32_t index) const = 0;
 	virtual std::array<std::vector<std::uint32_t>, 4> edges() const = 0;
@@ -117,6 +125,7 @@ private:
 		}
 	}
 	
-	std::uint32_t           m_last_cluster;
+	std::uint32_t           m_last_cluster = 0;
+	std::uint32_t           m_number_of_added_elements = 0;
 	random_number_generator m_rng;
 };
